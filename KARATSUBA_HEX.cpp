@@ -98,8 +98,15 @@ string karatsubaHex(const string& a, const string& b) {
 }
 
 int main() {
+
+    string inputFileName;
+    string outputFileName;
+
+    cout << "Enter the name of the Input file : ";
+    getline(cin, inputFileName);
+
     // Open the input file
-    ifstream inputFile("input.txt");
+    ifstream inputFile(inputFileName);
     if (!inputFile) {
         cerr << "Error opening file" << endl;
         return 1;
@@ -121,8 +128,22 @@ int main() {
     // Call the karatsuba function
     string result = karatsubaHex(hexA, hexB);
 
-    // Print the result in hexadecimal format
-    cout << "0x" << result << endl;
+    // Ask the user for the output file name
+    cout << "Enter the name of the output file: ";
+    getline(cin, outputFileName);
 
+    // Open the output file
+    ofstream outputFile(outputFileName);
+    if (!outputFile) {
+        cerr << "Error opening output file: " << outputFileName << std::endl;
+        return 1;
+    }
+
+    // Perform file operations (example: copy contents from input file to output file)
+    outputFile << "0x" << result << endl;
+
+    // Close the files
+    inputFile.close();
+    outputFile.close();
     return 0;
 }
