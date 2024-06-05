@@ -1,4 +1,4 @@
-# MULTIPLE-PRECISION-INTEGER-P
+# MULTIPLE PRECISION INTEGER MULTIPLICATION
 
 Large integer Addition and Multiplication
 
